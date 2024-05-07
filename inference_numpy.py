@@ -112,7 +112,6 @@ class FlexibleUNet(nn.Module):
     >>> dummy_masks = torch.randint(0, 2, (4, 1, 256, 256))
     >>> model = model.to('cpu')
     >>> outputs = model(dummy_imgs)
-    >>> torch.save(model.state_dict(), f'./test_model.pth')
     >>> outputs.shape[-2:] == dummy_masks.shape[-2:]
     True
     """
@@ -182,9 +181,9 @@ if __name__ == '__main__':
     # state_dict = torch.load_pytorch('./models/unet_5_6.pth')
     # print(state_dict.keys())
     # torch.save(state_dict, './models/unet_5_6.pkl')
-    state_dict = torch.load('./models/unet.pkl')
-    # model = FlexibleUNet(3, 34, depth=5, wf=6)
-    model = UNet()
+    state_dict = torch.load('./models/unet_5_6.pkl')
+    model = FlexibleUNet(3, 34, depth=5, wf=6)
+
     model.load_state_dict(state_dict)
     image = cv2.imread('./val_samples/data/frankfurt_000000_000294_leftImg8bit.png')
     image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
