@@ -2,8 +2,9 @@
 
 Unet Inference with ONLY Numpy
 
+use `git submodule init` to initialize the submodule NumPyTorch,
 The NumPyTorch Implementation is good,
-It is almost Pytorch-style so the model can be easily to be transplanted between torch and numpytorch.
+It is almost Pytorch-style and easy to transplant to torch.
 
 @author hammershock
 @email zhanghanmo@bupt.edu.cn
